@@ -26,7 +26,7 @@ class HomeView extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 22,
-              backgroundImage: AssetImage('assets/images/profile.jpg'),
+              backgroundImage: AssetImage('assets/images/profile.png'),
             ),
             const SizedBox(width: 12),
             Column(
