@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: LoginCustomerPage(),
+      initialRoute: '/',
       getPages: AppRoutes.pages,
       defaultTransition: Transition.noTransition,
     );

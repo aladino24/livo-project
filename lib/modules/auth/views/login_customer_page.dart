@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:livo_project/routes/routes_name.dart';
 import 'package:livo_project/themes/apps_color.dart';
 
 class LoginCustomerPage extends StatelessWidget {
+  const LoginCustomerPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +18,7 @@ class LoginCustomerPage extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: Colors.black12,
                   blurRadius: 12,
@@ -44,8 +47,8 @@ class LoginCustomerPage extends StatelessWidget {
                 // Email Field
                 TextField(
                   decoration: InputDecoration(
-                    labelText: "Email",
-                    prefixIcon: Icon(Icons.email),
+                    labelText: "Username",
+                    prefixIcon: const Icon(Icons.person),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
@@ -57,9 +60,9 @@ class LoginCustomerPage extends StatelessWidget {
                 TextField(
                   decoration: InputDecoration(
                     labelText: "Password",
-                    prefixIcon: Icon(Icons.lock),
+                    prefixIcon: const Icon(Icons.lock),
                     suffixIcon: IconButton(
-                      icon: Icon(Icons.visibility),
+                      icon: const Icon(Icons.visibility),
                       onPressed: () {},
                     ),
                     border: OutlineInputBorder(
@@ -74,7 +77,9 @@ class LoginCustomerPage extends StatelessWidget {
                   width: double.infinity,
                   height: 50,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                           Get.offAllNamed(RoutesName.main);
+                    },
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -90,9 +95,24 @@ class LoginCustomerPage extends StatelessWidget {
                 // Register
                 TextButton(
                   onPressed: () {
-                    Get.snackbar("Register", "Fitur belum tersedia");
+               
                   },
-                  child: const Text("Belum punya akun? Daftar di sini"),
+                  child: const Text.rich(
+                    TextSpan(
+                      text: 'Belum punya akun? ',
+                      style:
+                          TextStyle(color: Colors.black), 
+                      children: [
+                        TextSpan(
+                          text: 'Daftar di sini',
+                          style: TextStyle(
+                            color: Colors.blue, 
+                            decoration: TextDecoration.underline, 
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 )
               ],
             ),

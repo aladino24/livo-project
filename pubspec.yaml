@@ -21,6 +21,10 @@ dependencies:
   get: ^4.7.2
   shared_preferences: ^2.3.3
   flutter_native_splash: ^2.4.1
+  auto_size_text: ^3.0.0
+  persistent_bottom_nav_bar: ^6.2.1
+  google_fonts: ^6.2.1
+  iconsax_flutter: ^1.0.1
 
 dev_dependencies:
   flutter_test:
