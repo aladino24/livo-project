@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:livo_project/modules/settings/widgets/setting_tile.dart';
 import 'package:livo_project/themes/apps_color.dart';
 
 class SettingView extends StatelessWidget {
@@ -7,71 +8,103 @@ class SettingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Pengaturan',
-            style: TextStyle(color: Colors.white, fontSize: 20)),
-        backgroundColor: AppsColors.primaryColor,
-      ),
-      body: ListView(
+      backgroundColor: const Color(0xFFF9F9F9),
+      body: Column(
         children: [
+          // Modern AppBar
+          Container(
+            decoration: const BoxDecoration(
+              color: AppsColors.primaryColor,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(24),
+                bottomRight: Radius.circular(24),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black12,
+                  blurRadius: 6,
+                  offset: Offset(0, 3),
+                ),
+              ],
+            ),
+            padding: const EdgeInsets.fromLTRB(16, 48, 16, 24),
+            width: double.infinity,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Text(
+                  'Pengaturan',
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
+                ),
+                Icon(Icons.settings, color: Colors.white),
+              ],
+            ),
+          ),
+
           const SizedBox(height: 10),
 
-          // Unduh ulang data
-          ListTile(
-            leading: const Icon(Icons.download, color: Colors.blue),
-            title: const Text('Unduh Ulang Data'),
-            onTap: () {
-            },
-          ),
-          const Divider(),
-
-          // Pengaturan Akun
-          ListTile(
-            leading: const Icon(Icons.person_outline, color: Colors.green),
-            title: const Text('Pengaturan Akun'),
-            onTap: () {
-              // TODO: Navigasi ke pengaturan akun
-            },
-          ),
-          const Divider(),
-
-          // Bahasa
-          ListTile(
-            leading: const Icon(Icons.language, color: Colors.orange),
-            title: const Text('Bahasa'),
-            onTap: () {
-              // TODO: Ganti bahasa
-            },
-          ),
-          const Divider(),
-
-          // Obrolan Bantuan
-          ListTile(
-            leading: const Icon(Icons.chat_bubble_outline, color: Colors.purple),
-            title: const Text('Obrolan Bantuan'),
-            onTap: () {
-              // TODO: Navigasi ke halaman bantuan
-            },
-          ),
-          const Divider(),
-
-          // Hapus Semua Data
-          ListTile(
-            leading: const Icon(Icons.delete_outline, color: Colors.red),
-            title: const Text('Hapus Semua Data'),
-            onTap: () {
-              // TODO: Konfirmasi dan hapus semua data
-            },
-          ),
-          const Divider(),
-
-          // Keluar
-          ListTile(
-            leading: const Icon(Icons.logout, color: Colors.black),
-            title: const Text('Keluar'),
-            onTap: () {
-              // TODO: Logout dan arahkan ke login
-            },
+          // Body
+          Expanded(
+            child: ListView(
+              children: const [
+                SettingTile(
+                  label: 'Pengaturan Akun',
+                  icon: Icons.person_outline,
+                  iconColor: Colors.green,
+                  onTap: null,
+                ),
+                SettingTile(
+                  label: 'Bahasa',
+                  icon: Icons.language,
+                  iconColor: Colors.orange,
+                  onTap: null,
+                ),
+                SettingTile(
+                  label: 'Tema Aplikasi',
+                  icon: Icons.dark_mode,
+                  iconColor: Colors.blueGrey,
+                  onTap: null,
+                ),
+                SettingTile(
+                  label: 'Pusat Bantuan',
+                  icon: Icons.chat_bubble_outline,
+                  iconColor: Colors.purple,
+                  onTap: null,
+                ),
+                SettingTile(
+                  label: 'Hapus Semua Data',
+                  icon: Icons.delete_outline,
+                  iconColor: Colors.red,
+                  onTap: null,
+                ),
+                SettingTile(
+                  label: 'Periksa Pembaruan',
+                  icon: Icons.download,
+                  iconColor: Colors.blue,
+                  onTap: null,
+                ),
+                SettingTile(
+                  label: 'Keluar',
+                  icon: Icons.logout,
+                  iconColor: Colors.black,
+                  onTap: null,
+                ),
+                SizedBox(height: 30),
+                Center(
+                  child: Text(
+                    'Versi Aplikasi v1.1',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 13,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 16),
+              ],
+            ),
           ),
         ],
       ),
