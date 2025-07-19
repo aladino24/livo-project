@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:livo_project/modules/activities/views/activity_view.dart';
 import 'package:livo_project/modules/favorites/views/favorite_view.dart';
 import 'package:livo_project/modules/home/views/home_view.dart';
 import 'package:livo_project/modules/settings/views/setting_view.dart';
@@ -13,6 +13,7 @@ class MainView extends StatelessWidget {
   List<Widget> _buildScreens() {
     return [
       const HomeView(),
+      const ActivityView(),
       const FavoriteView(),
       const SettingView(),
     ];
@@ -27,6 +28,12 @@ class MainView extends StatelessWidget {
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
+        icon: const Icon(Icons.history),
+        title: ("Aktivitas"),
+        activeColorPrimary: const Color(0xFFD5671D),
+        inactiveColorPrimary: Colors.grey,
+      ),
+      PersistentBottomNavBarItem(
         icon: const Icon(Icons.favorite),
         title: ("Favorit"),
         activeColorPrimary: const Color(0xFFD5671D),
@@ -34,7 +41,7 @@ class MainView extends StatelessWidget {
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.settings),
-        title: ("Setting"),
+        title: ("Pengaturan"),
         activeColorPrimary: const Color(0xFFD5671D),
         inactiveColorPrimary: Colors.grey,
       ),
