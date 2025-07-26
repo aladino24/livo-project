@@ -11,7 +11,7 @@ class SettingView extends StatelessWidget {
       backgroundColor: const Color(0xFFF9F9F9),
       body: Column(
         children: [
-          // Modern AppBar
+          // Modern AppBars
           Container(
             decoration: const BoxDecoration(
               color: AppsColors.primaryColor,
@@ -29,9 +29,9 @@ class SettingView extends StatelessWidget {
             ),
             padding: const EdgeInsets.fromLTRB(16, 48, 16, 24),
             width: double.infinity,
-            child: Row(
+            child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
+              children: [
                 Text(
                   'Pengaturan',
                   style: TextStyle(
@@ -81,9 +81,15 @@ class SettingView extends StatelessWidget {
                   onTap: null,
                 ),
                 SettingTile(
+                  label: 'Pulihkan Data',
+                  icon: Icons.restore,
+                  iconColor: Colors.blue,
+                  onTap: null,
+                ),
+                SettingTile(
                   label: 'Periksa Pembaruan',
                   icon: Icons.download,
-                  iconColor: Colors.blue,
+                  iconColor: Colors.teal,
                   onTap: null,
                 ),
                 SettingTile(
